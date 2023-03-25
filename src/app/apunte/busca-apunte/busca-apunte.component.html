@@ -1,0 +1,18 @@
+<p-card header="Apuntes">
+
+    <div class="grid formgrid p-fluid">
+    <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+        <p-dropdown    [options]="categorias" [(ngModel)]="categ" placeholder="Seleccione Categoria" optionLabel="categoria"
+            [showClear]="true"></p-dropdown>
+    </div>
+    <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+        <p-dropdown    [options]="categ.aplicacion??[]" [(ngModel)]="aplicacion" placeholder="Seleccione Aplicación" 
+            [showClear]="true"></p-dropdown>
+    </div>
+    <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+        <p-button label="Buscar" icon="pi pi-search" iconPos="left" (onClick)="buscarApuntes()"></p-button>
+    </div>
+</div>
+</p-card>
+<br/>
+<app-resultados-apunte [apuntes]="apuntes" [apuntesAux]="apuntes" *ngIf="apuntes.length >0"></app-resultados-apunte>

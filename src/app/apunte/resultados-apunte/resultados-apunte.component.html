@@ -1,0 +1,18 @@
+
+
+<div class="grid formgrid p-fluid">
+    <div class="col-12 mb-12 lg:col-12 lg:mb-2 py-3">
+        <span class="p-float-label">
+            <input id="buscar" type="text" pInputText [(ngModel)]="termino" (keypress)="teclaPresionada()">
+            <label for="buscar">Buscar</label>
+        </span>
+    </div>
+    <div class="col-12 mb-12 lg:col-12 lg:mb-2 py-3" *ngFor="let apunte of apuntes">
+
+        <p-card [header]="apunte.descripcion??''">
+                <textarea [(ngModel)]="apunte.comando" rows="5" cols="30" pInputTextarea [autoResize]="true" readonly="true"></textarea>
+        </p-card>
+
+    </div>
+
+</div>

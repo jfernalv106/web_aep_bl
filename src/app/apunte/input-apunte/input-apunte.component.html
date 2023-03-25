@@ -1,0 +1,30 @@
+<p-card header="Nuevo Apunte">
+
+    <div class="grid formgrid p-fluid">
+    <div class="col-12 mb-12 lg:col-6 lg:mb-2 py-3">
+        <p-dropdown    [options]="categorias" [(ngModel)]="categ" placeholder="Seleccione Categoria" optionLabel="categoria"
+            [showClear]="true"></p-dropdown>
+    </div>
+    <div class="col-12 mb-12 lg:col-6 lg:mb-2 py-3">
+        <p-dropdown    [options]="categ.aplicacion??[]" [(ngModel)]="apunte.aplicacion" placeholder="Seleccione Aplicación" 
+            [showClear]="true"></p-dropdown>
+    </div>
+    <div class="col-12 mb-12 lg:col-12 lg:mb-2 py-3">
+        <span class="p-float-label">
+            <input id="descripcion" type="text" pInputText [(ngModel)]="apunte.descripcion">
+            <label for="descripcion">descripcion</label>
+        </span>
+    </div>
+    <div class="col-12 mb-12 lg:col-12 lg:mb-2 py-3">
+        <span class="p-float-label">
+            <textarea id="comando" [(ngModel)]="apunte.comando" rows="5" cols="30" pInputTextarea [autoResize]="true" ></textarea>
+            <label for="comando">Comando</label>
+        </span>
+    </div>
+  
+    <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+        <p-button label="Guardar" icon="pi pi-save" iconPos="left" (onClick)="guardar()"></p-button>
+    </div>
+</div>
+</p-card>
+<br/>

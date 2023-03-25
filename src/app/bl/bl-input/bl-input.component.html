@@ -1,0 +1,153 @@
+<p-card header="BL">
+
+    <div class="grid formgrid p-fluid">
+  
+        <div class="col-12 mb-2 lg:col-6 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="nroBl" type="text" pInputText [(ngModel)]="blJson.nroBl">
+                <label for="nroBl">Número BL</label>
+            </span>
+        </div>
+
+        <div class="col-12 mb-2 lg:col-6 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="tipoAccion" type="text" pInputText [(ngModel)]="blJson.tipoAccion">
+                <label for="tipoAccion">Tipo de Acción</label>
+            </span>
+        </div>
+        <div class="col-12 mb-2 lg:col-6 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="servicio" type="text" pInputText [(ngModel)]="blJson.servicio">
+                <label for="servicio">Servicio</label>
+            </span>
+        </div>
+        <div class="col-12 mb-2 lg:col-6 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="tipoServicio" type="text" pInputText [(ngModel)]="blJson.tipoServicio">
+                <label for="tipoServicio">Tipo de Servicio</label>
+            </span>
+        </div>
+        <div class="col-12 mb-2 lg:col-6 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="condTransporte" type="text" pInputText [(ngModel)]="blJson.condTransporte">
+                <label for="condTransporte">Condición de Transporte</label>
+            </span>
+        </div>
+
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <p-inputNumber id="totalBultos" type="number" [(ngModel)]="blJson.totalBultos"></p-inputNumber>
+                <label for="totalBultos">Total de Bultos</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="unidadPeso" type="text" pInputText [(ngModel)]="blJson.unidadPeso" class="form-control">
+                <label for="unidadPeso">Unidad Peso</label>
+            </span>
+        </div>
+
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <p-inputNumber id="totalItem" type="number" [(ngModel)]="blJson.totalItem" class="form-control">
+                </p-inputNumber>
+                <label for="totalItem">Total Item</label>
+            </span>
+        </div>
+    </div>
+
+</p-card>
+<br/>
+<p-card header="Referencias">
+    <div class="col-12 mb-12 lg:col-12 py-3">
+        <div class="grid formgrid p-fluid">
+            <div class="col-12 mb-12 lg:col-2 lg:mb-2 py-3">
+            <button pButton pRipple type="button" icon="pi pi-add" label="Agregar" (click)="agregaReferencia()"
+                class="p-button-rounded p-button-outlined col-6 mb-6 lg:col-4 lg:mb-2 py-3"></button>
+            </div>
+        </div>
+        <div *ngFor="let referencia of blJson.blReferencias; let i = index" class="grid formgrid p-fluid">
+            <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+                <span class="p-float-label">
+                    <input id="tipoReferencia{{i}}" type="text" pInputText [(ngModel)]="referencia.tipoReferencia"
+                        class="form-control">
+                    <label for="tipoReferencia{{i}}">Tipo de referencia</label>
+                </span>
+            </div>
+            <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+                <span class="p-float-label">
+                    <p-dropdown id="tipoDocumento{{i}}" [options]="tiposDoc"  [(ngModel)]="referencia.tipoDocumento" ></p-dropdown>
+                    <label for="tipoDocumento{{i}}">Tipo de documento</label>
+                </span>
+            </div>
+            <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+                <span class="p-float-label">
+                    <input id="numeroDocumento{{i}}" type="text" pInputText [(ngModel)]="referencia.numero"
+                        class="form-control">
+                    <label for="numeroDocumento{{i}}">Número de documento</label>
+                </span>
+            </div>
+            <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+                <span class="p-float-label">
+                    <input id="fecha{{i}}" type="text" pInputText [(ngModel)]="referencia.fecha" class="form-control">
+                    <label for="fecha{{i}}">Fecha</label>
+                </span>
+            </div>
+            <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+                <span class="p-float-label">
+                    <input id="tipoEmisor{{i}}" type="text" pInputText [(ngModel)]="referencia.tipoIdEmisor"
+                        class="form-control">
+                    <label for="tipoEmisor{{i}}">Tipo Emisor</label>
+                </span>
+            </div>
+            <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+                <button pButton pRipple type="button" icon="pi pi-add" label="Remover" (click)="removerReferencia(referencia)"
+                    class="p-button-rounded p-button-outlined col-6 mb-6 lg:col-4 lg:mb-2 py-3"></button>
+                </div>
+        </div>
+    </div>
+
+</p-card>
+<br/>
+<p-card header="Fechas">
+    <div class="col-12 mb-12 lg:col-12 py-3">
+        <div class="grid formgrid p-fluid">
+            <div class="col-12 mb-4 lg:col-2 lg:mb-2 py-3">
+            <button pButton pRipple type="button" icon="pi pi-add" label="agregar" (click)="agregarFecha()"
+                class="p-button-rounded p-button-outlined col-6 mb-6 lg:col-4 lg:mb-2 py-3"></button>
+            </div>
+        </div>
+        <div *ngFor="let fechas of blJson.blFechas; let i = index" class="grid formgrid p-fluid">
+            <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+                <span class="p-float-label">
+              
+
+                        <p-dropdown id="nombre{{i}}" [options]="tiposFecha"  [(ngModel)]="fechas.nombre"></p-dropdown>
+                    <label for="nombre{{i}}">Nombre</label>
+                </span>
+            </div>
+            <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+                <span class="p-float-label">
+                   
+                    <p-calendar id="valor{{i}}"  [(ngModel)]="fechas.valor"></p-calendar>
+                    <label for="valor{{i}}">valor</label>
+                </span>
+            </div>
+ 
+            <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+                <button pButton pRipple type="button" icon="pi pi-add" label="Remover" (click)="removerFecha(fechas)"
+                    class="p-button-rounded p-button-outlined col-6 mb-6 lg:col-4 lg:mb-2 py-3"></button>
+                </div>
+        </div>
+    </div>
+
+</p-card>
+<br/>
+<p-card>
+<div class="grid formgrid p-fluid">
+    <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3 ">
+    <button pButton pRipple type="button" icon="pi pi-add" label="Guardar" (click)="guardar()"
+        class="p-button-rounded p-button-outlined col-6 mb-6 lg:col-4 lg:mb-2 py-3"></button>
+        </div>
+</div>
+</p-card>

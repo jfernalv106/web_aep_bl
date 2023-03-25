@@ -1,0 +1,21 @@
+<p-table [value]="bls" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nro Bl</th>
+            <th>Referencia</th>
+
+            <th>Manifiesto</th>
+            <th>Nave</th>
+            <th>Estado Mfto</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-bl>
+        <tr>
+            <td>{{bl.nroBl}}</td>
+            <td>{{referencia(bl)}}</td>
+            <td>{{bl.manifiesto.nroMfto}}</td>
+            <td>{{bl.manifiesto.nave}}</td>
+            <td>{{bl.manifiesto.estado}}</td>
+        </tr>
+    </ng-template>
+</p-table>

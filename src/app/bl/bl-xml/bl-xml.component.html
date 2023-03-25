@@ -1,0 +1,22 @@
+<p-messages [(value)]="error" [enableService]="false"></p-messages>
+<div class="grid formgrid p-fluid">
+    <div class="col-12 mb-12 lg:col-12 lg:mb-2 py-3">
+        <p-fileUpload class="col-md-12" name="archivos[]" (uploadHandler)="onUpload($event)" [customUpload]="true"
+            [auto]="true" accept=".xml" [multiple]="true" [maxFileSize]="10000000" cancelLabel="cancelar"
+            chooseLabel="Examinar" uploadLabel="Subir">
+        </p-fileUpload>
+
+    </div>
+</div>
+
+    <br />
+    <div class="grid formgrid p-fluid">
+        <app-bls-table [bls]="bls" [blsAux]="bls" class="col-12 mb-12 lg:col-12 lg:mb-2 py-3"></app-bls-table>
+    </div>
+    <br />
+ 
+    <div class="grid formgrid p-fluid">
+        <div class="col-12 mb-12 lg:col-12 lg:mb-2 py-3">
+            <p-button label="Guardar" icon="pi pi-save" iconPos="left" (onClick)="guardar()"></p-button>
+        </div>
+    </div>

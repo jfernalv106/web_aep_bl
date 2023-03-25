@@ -1,0 +1,76 @@
+<p-card header="Vcard">
+
+    <div class="grid formgrid p-fluid">
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="nombre" type="text" pInputText [(ngModel)]="vcard.nombre">
+                <label for="nombre">Nombre</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="apellido" type="text" pInputText [(ngModel)]="vcard.apellido">
+                <label for="apellido">Apellido</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="cargo" type="text" pInputText [(ngModel)]="vcard.cargo">
+                <label for="cargo">Cargo</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="direccion" type="text" pInputText [(ngModel)]="vcard.direccion">
+                <label for="direccion">Direccion</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="tel" type="text" pInputText [(ngModel)]="vcard.tel">
+                <label for="tel">Telefono</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="cel" type="text" pInputText [(ngModel)]="vcard.cel">
+                <label for="cel">Movil</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="url" type="text" pInputText [(ngModel)]="vcard.url">
+                <label for="url">Web</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="mail" type="text" pInputText [(ngModel)]="vcard.mail">
+                <label for="mail">Email 1</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="mail2" type="text" pInputText [(ngModel)]="vcard.mail2">
+                <label for="mail2">Email 2</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <span class="p-float-label">
+                <input id="empresa" type="text" pInputText [(ngModel)]="vcard.empresa">
+                <label for="empresa">Empresa</label>
+            </span>
+        </div>
+        <div class="col-12 mb-12 lg:col-4 lg:mb-2 py-3">
+            <p-button label="Generar" icon="pi pi-save" iconPos="left" (onClick)="generar()"></p-button>
+        </div>
+    </div>
+
+</p-card>
+<br />
+<p-card header="QR">
+
+    <div class="grid formgrid p-fluid">
+        <qrcode [qrdata]="vcard.qr??''" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+    </div>
+</p-card>
